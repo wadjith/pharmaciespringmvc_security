@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/admin-template :: ahead">
+
+</head>
+<body>
+
+<!--Header-part-->
+<div id="header">
+  <h1><a href="dashboard.html">Matrix Admin</a></h1>
+</div>
+<!--close-Header-part--> 
+
+
+<!--top-Header-menu-->
+<div th:replace="fragments/admin-template :: header-menu">
+  
+</div>
+<!--close-top-Header-menu-->
+<!--start-top-serch-->
+<div th:replace="fragments/admin-template :: search">
+  
+</div>
+<!--close-top-serch-->
+<!--sidebar-menu-->
+<div th:replace="fragments/admin-template :: sidebar-menu">
+  
+</div>
+<!--sidebar-menu-->
+
+<!--main-container-part-->
+<div id="content">
+<!--breadcrumbs-->
+  <div id="content-header">
+    <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="#">Pharmacies</a> <a href="#" class="current">Enregistrer</a> </div>
+    <h1>Enregistrer une nouvelle Pharmacie</h1>
+  </div>
+<!--End-breadcrumbs-->
+
+<!--Action boxes-->
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span12">
+        <div class="widget-box">
+          <div class="widget-title"> <span class="icon"> <i class="icon-info-sign"></i> </span>
+            <h5>Les champs pr&eacute;c&eacute;d&eacute;s de (*) sont obligatoires</h5>
+          </div>
+          <div class="widget-content nopadding">
+            <form th:action="@{/admin/enregistrePharmacie}" th:object="${pharmacieDto}" class="form-horizontal" method="post" name="basic_validate" id="basic_validate" novalidate="novalidate">
+              <div class="control-group">
+                <label class="control-label">Nom *</label>
+                <div class="controls">
+                  <input type="text" name="nom" id="nom" maxlength="50" required>
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label">T&eacute;l&eacute;phone *</label>
+                <div class="controls">
+                  <input type="text" name="telephone" id="telephone" maxlength="20" required>
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label">Adresse *</label>
+                <div class="controls">
+                  <textarea name="adresse" id="adresse" maxlength="150" required></textarea>
+                </div>
+              </div>
+              <div class="form-actions">
+                <input type="submit" value="Enregistrer" class="btn btn-success">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--end-main-container-part-->
+
+<!--Footer-part-->
+
+<div th:replace="fragments/admin-template :: footer">
+  
+</div>
+
+<!--end-Footer-part-->
+
+<!-- Le bloc d'importation des fichiers JavaScript -->
+    <th:block th:insert="fragments/admin-template :: body/script"></th:block>
+</body>
+</html>

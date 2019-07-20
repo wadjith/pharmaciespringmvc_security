@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+
+<!-- 
+  Theme Name: Enlight
+  Theme URL: https://probootstrap.com/enlight-free-education-responsive-bootstrap-website-template
+  Author: ProBootstrap.com
+  Author URL: https://probootstrap.com
+  License: Released for free under the Creative Commons Attribution 3.0 license (probootstrap.com/license)
+-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="fragments/mon-template :: ahead">
+  
+  </head>
+  
+  <body>
+
+    <!-- je remplace par le fragment search du fichier /fragments/mon-template.html -->
+    <div th:replace="fragments/mon-template :: search"> 
+      
+    </div>
+    
+    <div class="probootstrap-page-wrapper">
+      <!-- Fixed navbar -->
+      
+      <!-- L'élément d'en-tête -->
+      <div th:replace="fragments/mon-template :: header-top">
+        
+      </div>
+      <!-- Le menu de navigation -->
+      <nav th:replace="fragments/mon-template :: menubar">
+        
+      </nav>
+      
+      <section class="probootstrap-section probootstrap-section-colored">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 text-left section-heading probootstrap-animate">
+              <h1>Pharmacie <span th:text="${session.pharmacie.nom}">Nom de la pharmacie</span> | Liste des Produits</h1>
+              <p>
+              	<i class="icon-location2"></i> <span th:text="${session.pharmacie.adresse}">Adresse</span> |
+              	<i class="icon-phone2"></i> <span th:text="${session.pharmacie.telephone}">+123 456 7890</span>
+              </p>
+              <!--  <a th:href="@{/nouveauProduit}" role="button" class="btn btn-primary btn-lg btn-ghost probootstrap-animate" data-animate-effect="fadeInLeft">Enregistrer un nouveau produit</a> -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+<!--  
+      <section class="probootstrap-section">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="probootstrap-flex-block">
+                <div class="probootstrap-text probootstrap-animate">
+                  <h3>We Hired Certified Teachers For Our Students</h3>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis explicabo veniam labore ratione illo vero voluptate a deserunt incidunt odio aliquam commodi blanditiis voluptas error non rerum temporibus optio accusantium!</p>
+                  <p><a href="#" class="btn btn-primary">Learn More</a></p>
+                </div>
+                <div class="probootstrap-image probootstrap-animate" style="background-image: url(img/slider_3.jpg)">
+                  <a href="https://vimeo.com/45830194" class="btn-video popup-vimeo"><i class="icon-play3"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+-->
+      
+      
+      <section class="probootstrap-section">
+        <div class="container">
+          
+
+          <div class="row"> <!-- Liste des produits -->
+            <div th:each="produitDto : ${lesProduitsDto}" class="col-md-3 col-sm-6">
+              <div class="probootstrap-teacher text-center probootstrap-animate">
+                <figure class="media">
+                  <img th:src="@{img/person_1.jpg}" alt="Un medicament" class="img-responsive">
+                </figure>
+                <div class="text">
+                  <h3 th:text="${produitDto.libelle}">Nom du produit</h3>
+                  <p> Prix: <span th:text="${produitDto.prix}">le prix</span> - Qte: <span th:text="${produitDto.quantite}">qte</span></p>
+                  <!-- <ul class="probootstrap-footer-social">
+                    <li class="twitter"><a href="#"><i class="icon-twitter"></i></a></li>
+                    <li class="facebook"><a href="#"><i class="icon-facebook2"></i></a></li>
+                    <li class="instagram"><a href="#"><i class="icon-instagram2"></i></a></li>
+                    <li class="google-plus"><a href="#"><i class="icon-google-plus"></i></a></li>
+                  </ul> -->
+                </div>
+              </div>
+            </div>
+            
+            <div class="clearfix visible-sm-block visible-xs-block"></div>
+          </div> 
+          
+        </div>
+      </section>
+   
+   <!--  
+      <section class="probootstrap-cta">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <h2 class="probootstrap-animate" data-animate-effect="fadeInRight">Get your admission now!</h2>
+              <a href="#" role="button" class="btn btn-primary btn-lg btn-ghost probootstrap-animate" data-animate-effect="fadeInLeft">Enroll</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    -->
+    
+      <!-- footer -->
+      <footer th:replace="fragments/mon-template :: footer">
+        
+      </footer>
+
+    </div>
+    <!-- END wrapper -->
+    
+
+    <!-- Le bloc d'importation des fichiers JavaScript -->
+    <th:block th:insert="fragments/mon-template :: body/script"></th:block>
+
+  </body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+
+<!-- 
+  Theme Name: Enlight
+  Theme URL: https://probootstrap.com/enlight-free-education-responsive-bootstrap-website-template
+  Author: ProBootstrap.com
+  Author URL: https://probootstrap.com
+  License: Released for free under the Creative Commons Attribution 3.0 license (probootstrap.com/license)
+-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/mon-template :: ahead">
+
+</head>
+
+<body>
+
+	<!-- je remplace par le fragment search du fichier /fragments/mon-template.html -->
+	<!-- <div th:replace="fragments/mon-template :: search"> 
+      
+    </div>  -->
+
+	<div class="probootstrap-page-wrapper">
+		<!-- Fixed navbar -->
+
+		<!-- L'élément d'en-tête -->
+		<!--  <div th:replace="fragments/mon-template :: header-top">
+        
+      </div> -->
+		<!-- Le menu de navigation -->
+		<!--  <nav th:replace="fragments/mon-template :: menubar">
+        
+      </nav> -->
+
+		<section class="probootstrap-section probootstrap-section-colored">
+			<div class="container">
+				<div class="row">
+					<div
+						class="col-md-12 text-left section-heading probootstrap-animate">
+						<h1 class="mb0">Enregistrement des utilisateurs</h1>
+						<a th:href="@{/login}" role="button"
+							class="btn btn-primary btn-lg btn-ghost probootstrap-animate"
+							data-animate-effect="fadeInLeft">Connexion utilisateur</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="probootstrap-section probootstrap-section-sm">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="row probootstrap-gutter0">
+							<!--  
+	               <div class="col-md-4" id="probootstrap-sidebar">
+	                 <div class="probootstrap-sidebar-inner probootstrap-overlap probootstrap-animate">
+	                   <h3>Pages</h3>
+	                   <ul class="probootstrap-side-menu">
+	                     
+	                     <li><a href="index.html">Home</a></li>
+	                     <li><a href="courses.html">Courses</a></li>
+	                     <li><a href="teachers.html">Teachers</a></li>
+	                     <li><a href="events.html">Events</a></li>
+	                     <li><a href="about.html">About Us</a></li>
+	                     <li class="active"><a>Contact Us</a></li>
+	                   </ul>
+	                 </div>
+	               </div>
+	             -->
+							<div class="col-md-10 col-md-push-1  probootstrap-animate"
+								id="probootstrap-content">
+								<!-- <h2>Connexion Utilisateur</h2> -->
+								<p>Les champs pr&eacute;c&eacute;d&eacute;s de (*) sont
+									obligatoires</p>
+								<form th:action="@{/registration}" th:object="${user}"
+									method="post" class="probootstrap-form">
+									<div class="form-group">
+										<div class="col-sm-9">
+											<label th:if="${#fields.hasErrors('name')}"
+												th:errors="*{name}" class="validation-message"></label> <input
+												type="text" th:field="*{name}" placeholder="Name"
+												class="form-control" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<div class="col-sm-9">
+											<label th:if="${#fields.hasErrors('lastName')}"
+												th:errors="*{lastName}" class="validation-message"></label>
+											<input type="text" th:field="*{lastName}"
+												placeholder="Last Name" class="form-control" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<div class="col-sm-9">
+											<input type="text" th:field="*{email}" placeholder="Email"
+												class="form-control" /> <label
+												th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
+												class="validation-message"></label>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<div class="col-sm-9">
+											<input type="password" th:field="*{password}"
+												placeholder="Password" class="form-control" /> <label
+												th:if="${#fields.hasErrors('password')}"
+												th:errors="*{password}" class="validation-message"></label>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<div class="col-sm-9">
+					                        <input type="submit" class="btn btn-primary btn-block" value="Enregistrer">
+					                    </div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- 
+      <section class="probootstrap-cta">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <h2 class="probootstrap-animate" data-animate-effect="fadeInRight">Get your admission now!</h2>
+              <a href="#" role="button" class="btn btn-primary btn-lg btn-ghost probootstrap-animate" data-animate-effect="fadeInLeft">Enroll</a>
+            </div>
+          </div>
+        </div>
+      </section>
+   -->
+		<!-- footer -->
+		<!-- <footer th:replace="fragments/mon-template :: footer">
+        
+      </footer> -->
+
+	</div>
+	<!-- END wrapper -->
+
+
+	<!-- Le bloc d'importation des fichiers JavaScript -->
+	<th:block th:insert="fragments/mon-template :: body/script"></th:block>
+
+</body>
+</html>

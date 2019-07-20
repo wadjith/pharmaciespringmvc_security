@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/admin-template :: ahead">
+
+</head>
+<body>
+
+<!--Header-part-->
+<div id="header">
+  <h1><a href="dashboard.html">Matrix Admin</a></h1>
+</div>
+<!--close-Header-part--> 
+
+
+<!--top-Header-menu-->
+<div th:replace="fragments/admin-template :: header-menu">
+  
+</div>
+<!--close-top-Header-menu-->
+<!--start-top-serch-->
+<div th:replace="fragments/admin-template :: search">
+  
+</div>
+<!--close-top-serch-->
+<!--sidebar-menu-->
+<div th:replace="fragments/admin-template :: sidebar-menu">
+  
+</div>
+<!--sidebar-menu-->
+
+<!--main-container-part-->
+<div id="content">
+<!--breadcrumbs-->
+  <div id="content-header">
+    <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="#">Utilisateurs</a> <a href="#" class="current">Enregistrer</a> </div>
+    <h1>Enregistrer un nouvel utilisateur</h1>
+  </div>
+<!--End-breadcrumbs-->
+
+<!--Action boxes-->
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span12">
+        <div class="widget-box">
+          <div class="widget-title"> <span class="icon"> <i class="icon-info-sign"></i> </span>
+          </div>
+          <div class="widget-content nopadding">
+          	<div class="alert alert-success alert-block" align="center" th:if="${successMessage}"> 
+	    		<a class="close" data-dismiss="alert" href="#">×</a>
+	            <h4 class="alert-heading">Success!</h4>
+	            <span th:text="${successMessage}">Enregistrez avec succès!!</span>    
+        	</div>
+            <form th:action="@{/admin/registration}" th:object="${user}" class="form-horizontal" method="post" name="basic_validate" id="basic_validate" novalidate="novalidate">
+              <div class="control-group">
+                <div class="controls">
+                  <input type="text" name="name" id="name" placeholder="Name" th:value="*{name}" required />
+                  <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="help-inline"></span>
+                </div>
+              </div>
+              <div class="control-group">
+                <div class="controls">
+                  <input type="text" name="lastName" id="lastName" placeholder="Last Name" th:value="*{lastName}" required />
+                  <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" class="help-inline"></span>
+                </div>
+              </div>
+              <div class="control-group">
+                <div class="controls">
+                  <input type="email" name="email" id="email" placeholder="Email" th:value="*{email}" required />
+                  <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="help-inline"></span>
+                </div>
+              </div>
+              <div class="control-group">
+                <div class="controls">
+                  <input type="password" name="password" id="password" placeholder="Password" required />
+                  <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="help-inline"></span>
+                </div>
+              </div>
+              <div class="form-actions">
+                <input type="submit" value="Enregistrer" class="btn btn-success">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--end-main-container-part-->
+
+<!--Footer-part-->
+
+<div th:replace="fragments/admin-template :: footer">
+  
+</div>
+
+<!--end-Footer-part-->
+
+<!-- Le bloc d'importation des fichiers JavaScript -->
+    <th:block th:insert="fragments/admin-template :: body/script"></th:block>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/admin-template :: ahead">
+
+</head>
+<body>
+
+<!--Header-part-->
+<div id="header">
+  <h1><a href="dashboard.html">Matrix Admin</a></h1>
+</div>
+<!--close-Header-part--> 
+
+
+<!--top-Header-menu-->
+<div th:replace="fragments/admin-template :: header-menu">
+  
+</div>
+<!--close-top-Header-menu-->
+<!--start-top-serch-->
+<div th:replace="fragments/admin-template :: search">
+  
+</div>
+<!--close-top-serch-->
+<!--sidebar-menu-->
+<div th:replace="fragments/admin-template :: sidebar-menu">
+  
+</div>
+<!--sidebar-menu-->
+
+<!--main-container-part-->
+<div id="content">
+  <div id="content-header">
+    <div id="breadcrumb"> <a th:href="@{/admin/}" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="#" class="current">Produits</a> </div>
+    <h1>Liste des Produits | Pharmacie <span th:text="${session.pharmacie.nom}">Nom de la pharmacie</span></h1>
+  </div>
+  <div class="container-fluid">
+    <hr>
+    <div class="row-fluid">
+      <div class="span12">
+      	<div class="span9">
+      		<i class="icon-phone"></i> <span th:text="${session.pharmacie.telephone}">Telephone</span> |
+      		<i class="icon-home"></i> <span th:text="${session.pharmacie.adresse}">adresse</span>
+      	</div>
+      	<div class="span3">
+      		<a class="btn btn-large btn-primary" th:href="@{/admin/nouveau-produit.html}" align="left">
+      			<i class="icon-plus"></i> Nouveau produit</a>
+      	</div>
+        <div class="widget-box">
+          <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
+            <h5>Data table</h5>
+          </div>
+          <div class="widget-content nopadding">
+            <table class="table table-bordered data-table">
+              <thead>
+                <tr>
+                  <th>Reference</th>
+                  <th>Libelle</th>
+                  <th>Prix</th>
+                  <th>Quantite</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr th:each="produitDto : ${lesProduitsDto}" class="gradeA">
+                  <td th:text = "${produitDto.reference}">reference</td>
+                  <td th:text = "${produitDto.libelle}">libelle</td>
+                  <td th:text = "${produitDto.prix}">prix</td>
+                  <td th:text = "${produitDto.quantite}" class="center">4</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--end-main-container-part-->
+
+<!--Footer-part-->
+
+<div th:replace="fragments/admin-template :: footer">
+  
+</div>
+
+<!--end-Footer-part-->
+
+<!-- Le bloc d'importation des fichiers JavaScript -->
+    <th:block th:insert="fragments/admin-template :: body/script"></th:block>
+</body>
+</html>

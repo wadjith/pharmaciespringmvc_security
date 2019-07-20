@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    
+<head>
+        <title>Pharmacie Annuaire Admin</title><meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" th:href="@{/admin/css/bootstrap.min.css}" />
+		<link rel="stylesheet" th:href="@{/admin/css/bootstrap-responsive.min.css}" />
+        <link rel="stylesheet" th:href="@{/admin/css/matrix-login.css}" />
+        <link href="font-awesome/css/font-awesome.css" rel="stylesheet" />
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
+
+    </head>
+    <body>
+        <div id="loginbox">
+        	<h3 align="center">CONNEXION UTILISATEUR</h3>          
+        	<div class="alert alert-error alert-block" align="center" th:if="${param.error}"> 
+	    		<!--  <a class="close" data-dismiss="alert" href="#">×</a> -->
+	            <h4 class="alert-heading">Error!</h4>
+	               Email ou Mot de passe incorrect, Vérifiez-les!! 
+        	</div>  
+            <form id="loginform" class="form-vertical" th:action="@{/login}" method="post">
+				<!-- <div class="control-group normal_text"> <h3><img th:src="@{/admin/img/logo.png}" alt="Logo" /></h3></div> -->
+                <div class="control-group">
+                    <div class="controls">
+                        <div class="main_input_box">
+                            <span class="add-on bg_lg"><i class="icon-user"> </i></span>
+                            <input type="text" id="email" name="email" placeholder="Email" required />
+                        </div>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="controls">
+                        <div class="main_input_box">
+                            <span class="add-on bg_ly"><i class="icon-lock"></i></span>
+                            <input type="password" id="password" name="password" placeholder="Password" required />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <span class="pull-left"><a href="#" class="flip-link btn btn-info" id="to-recover">Lost password?</a></span>
+                    <span class="pull-right"><input type="submit" id="submit" name="submit" class="btn btn-success" value="Connexion" ></span>
+                </div>
+            </form>
+            <form id="recoverform" action="#" class="form-vertical">
+				<p class="normal_text">Enter your e-mail address below and we will send you instructions how to recover a password.</p>
+				
+                    <div class="controls">
+                        <div class="main_input_box">
+                            <span class="add-on bg_lo"><i class="icon-envelope"></i></span><input type="text" placeholder="E-mail address" />
+                        </div>
+                    </div>
+               
+                <div class="form-actions">
+                    <span class="pull-left"><a href="#" class="flip-link btn btn-success" id="to-login">&laquo; Back to login</a></span>
+                    <span class="pull-right"><a class="btn btn-info" >Reecover</a></span>
+                </div>
+            </form>
+            <div class="alert alert-info alert-block" align="center"> 
+	    		<!--  <a class="close" data-dismiss="alert" href="#">×</a> -->
+	            <h5 class="alert-heading">Compte test</h5>
+	               Email= demo@demo.com | Mot de passe= lademo 
+        	</div>
+        </div>
+        
+        <script th:src="@{/admin/js/jquery.min.js}"></script>  
+        <script th:src="@{/admin/js/matrix.login.js}"></script> 
+    </body>
+
+</html>

@@ -1,0 +1,9 @@
+/* Your custom css code goes here */
+.probootstrap-section {
+    padding: 1em 0;
+    position: relative;
+}
+.probootstrap-service-2 .text {
+    width: 95%;
+    padding: 20px;
+}
