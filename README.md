@@ -1,2 +1,12 @@
-# pharmaciespringmvc_security
-Application web d'annuaire sur les pharmacies: Java EE, Spring MVC, Spring Security
+# Pharmacie Spring mvc security
+Application web d'annuaire sur les pharmacies.
+
+Technologies mises en oeuvre
+**************************************************************
+- Base de données: MySQl
+- Langage: Java version 8.
+- Framework: Java EE, Spring Boot, Spring Data, Spring MVC, Spring Security.
+- Moteur de template: Thymeleaf
+- ORM: Hibernate
+- Serveur d'application: Apache Tomcat 8
+- Design Pattern MVC.
