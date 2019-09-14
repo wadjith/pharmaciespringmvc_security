@@ -10,3 +10,6 @@ Technologies mises en oeuvre
 - ORM: Hibernate
 - Serveur d'application: Apache Tomcat 8
 - Design Pattern MVC.
+
+-----------------------------------------------------------------------------------------
+Version de test de l'application (http://thierrywadji.10000codeurs-lab.com/login)
